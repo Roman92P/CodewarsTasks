@@ -13,7 +13,7 @@ public class Isograms {
         for ( String s: split ){
             test.add(s);
         }
-        List<String> collect = test.stream().distinct().collect(Collectors.toList());
+        List<String> collect =test.stream().distinct().collect(Collectors.toList());
         if(collect.size()==test.size()){
             result = true;
         }
