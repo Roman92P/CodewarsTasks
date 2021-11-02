@@ -1,6 +1,6 @@
 package com.tasksCodewars;
 
-public class StripComments {
+public class SplitComments {
     public static void main(String[] args) {
         System.out.println(stripComments("apples, pears # and bananas\ngrapes\nbananas !apples", new String[] { "#", "!" }));
     }
