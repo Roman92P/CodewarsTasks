@@ -1,17 +1,8 @@
 package com.tasksCodewars;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import javax.print.attribute.HashAttributeSet;
-
-import org.apache.commons.math3.util.CombinatoricsUtils;
 
 public class PermutationsTwo {
 
@@ -61,7 +52,7 @@ public class PermutationsTwo {
 		}
 		// generate all possible combinations of key places
 		Set<String> keySet = strIndexMap.keySet();
-		String keySetStr = String.valueOf(keySet).replaceAll("[\\[\\],\s]", "");
+		String keySetStr = String.valueOf(keySet).replaceAll("[\\[\\],\\s]", "");
 		List<String> indexes = new ArrayList<>();
 		// how many possible combination
 		int combinations = 1;

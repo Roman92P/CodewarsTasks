@@ -1,13 +1,6 @@
 package com.tasksCodewars;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,12 +24,12 @@ public class Permutations {
 		}
 		//generate all possible combinations of key places
 		Set<String> keySet = strIndexMap.keySet();
-		String keySetStr = String.valueOf(keySet).replaceAll("[\\[\\],\s]", "");
+		String keySetStr = String.valueOf(keySet).replaceAll("[\\[\\],\\s]", "");
 		System.out.println("Keyset:"+keySetStr);
 		List<String> indexes = new ArrayList<>();
 		
 		for (int i = 0; i < c; i++) {
-			String firstRowIndexString = createNextFirstRowIndexes(c, i).replaceAll("[\\[\\],\s]", "");
+			String firstRowIndexString = createNextFirstRowIndexes(c, i).replaceAll("[\\[\\],\\s]", "");
 			indexes.add(firstRowIndexString);
 			String str2="";
 			while(!indexes.contains(str2)) {

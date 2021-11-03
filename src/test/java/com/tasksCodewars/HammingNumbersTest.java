@@ -1,6 +1,23 @@
 package com.tasksCodewars;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
+
 public class HammingNumbersTest {
-  
+
+    @Test
+    public void Test1() {
+        Assert.assertEquals("hamming(1) should be 1", 1, Hamming.hamming(1));
+        Assert.assertEquals("hamming(2) should be 2", 2, Hamming.hamming(2));
+        Assert.assertEquals("hamming(3) should be 3", 3, Hamming.hamming(3));
+        Assert.assertEquals("hamming(4) should be 4", 4, Hamming.hamming(4));
+        Assert.assertEquals("hamming(5) should be 5", 5, Hamming.hamming(5));
+        Assert.assertEquals("hamming(6) should be 6", 6, Hamming.hamming(6));
+        Assert.assertEquals("hamming(7) should be 8", 8, Hamming.hamming(7));
+        Assert.assertEquals("hamming(16) should be 25", 25, Hamming.hamming(16));
+        Assert.assertEquals("hamming(17) should be 27", 27, Hamming.hamming(17));
+        Assert.assertEquals("hamming(18) should be 30", 30, Hamming.hamming(18));
+        Assert.assertEquals("hamming(19) should be 32", 32, Hamming.hamming(19));
+    }
+
 }
