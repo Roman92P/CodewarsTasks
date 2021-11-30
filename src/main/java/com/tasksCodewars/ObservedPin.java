@@ -4,8 +4,6 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,20 +14,32 @@ import java.util.stream.Stream;
 
 public class ObservedPin {
 	
+	public static void main(String[] args) {
+		System.out.println(getPINs("11"));
+	}
+	
 	private static final List<String> keyBoard = 
 			Arrays.asList("n","n","n","n","1","2","3","n","4","5","6","n","7","8","9","n","n","0","n","n","n","n");
 	
 	public static List<String> getPINs(String observed) {
-		List<Integer> sortedPossibleIntegers = getsortedIntegers(observed);
+		List<Integer> listOfObservedNumbers = getListOfObservedNumbers(observed);
 		Map<Integer, List<Integer>> allNumbers = new LinkedHashMap<Integer, List<Integer>>();
-		for(int i = 0; i<sortedPossibleIntegers.size(); i++){
-			allNumbers.put(i, getPossiblePressButtons(sortedPossibleIntegers.get(i)));
+		for(int i = 0; i<listOfObservedNumbers.size(); i++){
+			allNumbers.put(i, getPossiblePressButtons(listOfObservedNumbers.get(i)));
 		}
 		List<String> passwordsList = getPasswordsList(allNumbers,observed.length());
-	       return passwordsList;
+		
+	return joinNumbersInEachStr(passwordsList);
 	}
 	
-	public static List<Integer>getsortedIntegers(String observed){
+	private static List<String> joinNumbersInEachStr(List<String> passwordsList) {
+		return passwordsList.stream()
+				.map(s->s.replaceAll("\\D", ""))
+				.sorted()
+				.collect(Collectors.toList());	
+	}
+
+	public static List<Integer>getListOfObservedNumbers(String observed){
 		String[] splited = observed.split("");
 		List<Integer> resultIntList = Stream.of(splited)
 				.mapToInt(s->Integer.parseInt(s))
